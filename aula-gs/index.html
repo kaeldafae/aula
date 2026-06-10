@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aula · Mi Grado Superior</title>
+<meta name="description" content="Tu academia personal: lecciones, repaso espaciado SM-2, ejercicios interactivos, casos prácticos y exámenes.">
+<meta name="theme-color" content="#F5EFE3">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Aula">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">A</span>
+    <div>
+      <h1>Aula</h1>
+      <p class="brand-sub">Mi grado superior</p>
+    </div>
+  </div>
+  <div class="top-right">
+    <button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button>
+    <div class="streak" title="Días seguidos de estudio">🔥 <span id="streakNum">0</span></div>
+  </div>
+</header>
+
+<main id="view" aria-live="polite"></main>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-view="home"><span class="tab-ico">▦</span>Inicio</button>
+  <button class="tab" data-view="course"><span class="tab-ico">¶</span>Curso</button>
+  <button class="tab" data-view="practice"><span class="tab-ico">⌗</span>Práctica</button>
+  <button class="tab" data-view="exam"><span class="tab-ico">✓</span>Examen</button>
+  <button class="tab" data-view="profile"><span class="tab-ico">◉</span>Perfil</button>
+</nav>
+
+<div id="toast" class="toast" role="status"></div>
+<canvas id="confetti"></canvas>
+<div id="modal" class="modal-root" hidden></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "Aula · Mi Grado Superior",
+  "short_name": "Aula",
+  "description": "Lecciones, fichas con repaso espaciado y exámenes de Comercial, Laboral, Contable y Legal.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F5EFE3",
+  "theme_color": "#F5EFE3",
+  "lang": "es",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
