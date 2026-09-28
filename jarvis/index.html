@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Jarvis">
+  <meta name="description" content="Asistente personal por voz">
+  <title>Jarvis</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <h1 id="app-title">Jarvis</h1>
+      <span id="status" class="status" role="status" aria-live="polite"></span>
+    </header>
+
+    <main>
+      <section id="view-talk" class="view is-active" aria-label="Hablar">
+        <div id="chat" class="chat" aria-live="polite"></div>
+        <div id="pending" class="pending" hidden>
+          <p id="pending-text"></p>
+          <div class="row">
+            <button type="button" id="pending-yes" class="btn primary">Confirmar</button>
+            <button type="button" id="pending-no" class="btn">Cancelar</button>
+          </div>
+        </div>
+        <form id="composer" class="composer" autocomplete="off">
+          <input id="input" type="text" enterkeyhint="send" placeholder="Escribe o dicta…" aria-label="Mensaje" maxlength="400">
+          <button type="submit" class="btn primary" aria-label="Enviar">Enviar</button>
+        </form>
+        <button type="button" id="talk" class="talk" aria-label="Mantén pulsado para hablar">
+          <span class="talk-ring"></span>
+          <span id="talk-label">Mantén para hablar</span>
+        </button>
+      </section>
+
+      <section id="view-week" class="view" aria-label="Semana"></section>
+      <section id="view-tasks" class="view" aria-label="Tareas"></section>
+      <section id="view-settings" class="view" aria-label="Ajustes"></section>
+    </main>
+
+    <nav class="tabs" aria-label="Secciones">
+      <button type="button" data-view="talk" class="is-active">Hablar</button>
+      <button type="button" data-view="week">Semana</button>
+      <button type="button" data-view="tasks">Tareas</button>
+      <button type="button" data-view="settings">Ajustes</button>
+    </nav>
+  </div>
+
+  <div id="update-banner" class="banner" hidden>
+    <span>Nueva versión disponible</span>
+    <button type="button" id="update-btn" class="btn primary">Actualizar</button>
+  </div>
+  <div id="toast" class="toast" hidden></div>
+  <dialog id="sheet" class="sheet"></dialog>
+  <div id="onboarding" class="onboarding" hidden></div>
+</body>
+</html>
